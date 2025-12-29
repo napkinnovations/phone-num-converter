@@ -4,32 +4,33 @@ import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    const [phoneNum, setPhoneNum] = useState("");
+    const [result, setResult] = useState("");
 
-  return (
+    function handleSubmit(e){
+        e.preventDefault();     // to prevent refreshing
+        let result = "";
+        const digitsOnly = phoneNum.replace(/\D/g, "");
+        setResult(digitsOnly);
+    }
+
+    function handleChange(e){
+        setPhoneNum(e.target.value);
+//         setResult("");
+    }
+    return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <form onSubmit={handleSubmit}>
+            <div>Enter Phone Number:</div>
+            <input type="text" value={phoneNum} onChange={handleChange} placeholder="(000)-000-0000"></input>
+            <div><button type="submit">Submit</button></div>
+        </form>
+        <div>Result:</div>
+        <label>{result}</label>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+    )
 }
 
 export default App
