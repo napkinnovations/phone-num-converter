@@ -1,6 +1,6 @@
 # Description
 A very simple Google Chrome extension that I will use to convert phone numbers into strings of pure numbers. For example, 480-000-0000 will turn into 4800000000. This will be helpful for my work's workflow.
-
+Link: https://napkinnovations.github.io/phone-num-converter/
 
 # React + Vite
 
